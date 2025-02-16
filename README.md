@@ -1,8 +1,8 @@
 # SQL-Projects
 
-<code> <\code>
+<code> 
 
-`--number of vehicles stolen every year
+```--number of vehicles stolen every year
 SELECT
 	EXTRACT(
 		'YEAR'
@@ -13,7 +13,7 @@ SELECT
 FROM
 	STOLEN_VEHICLES
 GROUP BY
-	YEAR;
+	YEAR;```
 
 SELECT
 	TO_CHAR(DATE_STOLEN, 'Month') AS MONTH,
@@ -51,6 +51,8 @@ SELECT
 	*
 FROM
 	NUM_STOLEN_PER_MONTH;`
+
+
 
 # Analyzing Students' Mental Health
 
