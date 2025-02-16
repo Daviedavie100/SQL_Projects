@@ -1,5 +1,57 @@
 # SQL-Projects
 
+<code> <\code>
+
+`--number of vehicles stolen every year
+SELECT
+	EXTRACT(
+		'YEAR'
+		FROM
+			DATE_STOLEN
+	) AS YEAR,
+	COUNT(VEHICLE_ID) AS NUMBER_STOLEN
+FROM
+	STOLEN_VEHICLES
+GROUP BY
+	YEAR;
+
+SELECT
+	TO_CHAR(DATE_STOLEN, 'Month') AS MONTH,
+	COUNT(VEHICLE_ID) AS NUMBER_STOLEN
+FROM
+	STOLEN_VEHICLES
+GROUP BY
+	MONTH
+ORDER BY
+	NUMBER_STOLEN DESC;
+
+CREATE TABLE IF NOT EXISTS NUM_STOLEN_PER_MONTH AS (
+	SELECT
+		MONTH,
+		CONCAT(YEAR, '-', MONTH) AS COMBINED_COL,
+		NUMBER_STOLEN
+	FROM
+		(
+			SELECT
+				TO_CHAR(DATE_STOLEN, 'YYYY') AS YEAR,
+				TO_CHAR(DATE_STOLEN, 'Month') AS MONTH,
+				COUNT(VEHICLE_ID) AS NUMBER_STOLEN
+			FROM
+				STOLEN_VEHICLES
+			GROUP BY
+				YEAR,
+				MONTH
+			ORDER BY
+				YEAR ASC,
+				MONTH DESC
+		) AS M
+);
+
+SELECT
+	*
+FROM
+	NUM_STOLEN_PER_MONTH;`
+
 # Analyzing Students' Mental Health
 
 Use your data manipulation skills to perform exploratory data analysis on a dataset around student mental health.
