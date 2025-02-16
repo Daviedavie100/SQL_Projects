@@ -1,8 +1,7 @@
 # SQL-Projects
 
-<code bbb> 
-
-```--number of vehicles stolen every year
+```sql
+--number of vehicles stolen every year
 SELECT
 	EXTRACT(
 		'YEAR'
@@ -13,7 +12,7 @@ SELECT
 FROM
 	STOLEN_VEHICLES
 GROUP BY
-	YEAR;```
+	YEAR;
 
 SELECT
 	TO_CHAR(DATE_STOLEN, 'Month') AS MONTH,
@@ -50,7 +49,7 @@ CREATE TABLE IF NOT EXISTS NUM_STOLEN_PER_MONTH AS (
 SELECT
 	*
 FROM
-	NUM_STOLEN_PER_MONTH;`
+	NUM_STOLEN_PER_MONTH;
 
 
 
